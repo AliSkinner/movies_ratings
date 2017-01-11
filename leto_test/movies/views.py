@@ -11,7 +11,7 @@ class MovieList(TemplateView):
         context = super(MovieList, self).get_context_data(**kwargs)
         try:
             movies = get_bbc_data()
-            context['movies'] = movies.get('episodes')
+            context['movies'] = movies
         except:
             messages.error(self.request, 'Error getting data from BBC')
         return context

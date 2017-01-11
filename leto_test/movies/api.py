@@ -7,7 +7,8 @@ def get_bbc_data():
     # check cache for movies
     movies = cache.get('movies', None)
     if not movies:
-        movies = requests.get(BBC_URL).json()
+        data = requests.get(BBC_URL).json()
+        movies = [movie.get('programme') for movie in data.get('episodes')]
         # cache movies for 5 mins
         cache.set('movies', movies, 300)
     return movies
