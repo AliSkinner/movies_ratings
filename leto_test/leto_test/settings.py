@@ -107,3 +107,5 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
+
+THE_MOVIE_DB_KEY = os.environ.get('THE_MOVIE_DB_KEY', '')

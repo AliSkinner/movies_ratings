@@ -1,14 +1,30 @@
-from django.core.cache import cache
+from leto_test.settings import THE_MOVIE_DB_KEY
 import requests
+import time
 
-BBC_URL = 'http://www.bbc.co.uk/tv/programmes/formats/films/player/episodes.json'
+BBC_URL = "http://www.bbc.co.uk/tv/programmes/formats/films/player/episodes.json"
+THE_MOVIE_DB_URL = "http://api.themoviedb.org/3/search/movie?api_key={}".format(THE_MOVIE_DB_KEY)
 
 def get_bbc_data():
-    # check cache for movies
-    movies = cache.get('movies', None)
-    if not movies:
-        data = requests.get(BBC_URL).json()
-        movies = [movie.get('programme') for movie in data.get('episodes')]
-        # cache movies for 5 mins
-        cache.set('movies', movies, 300)
+    data = requests.get(BBC_URL).json()
+    movies = [ movie.get('programme') for movie in data.get('episodes') ]
     return movies
+
+def get_movie_details(movie):
+
+    movie_details = {
+        'title': movie.get('title'),
+        'synopsis': movie.get('short_synopsis'),
+        'run_time': time.strftime("%H:%M:%S", time.gmtime(movie.get('duration'))),
+        'expires': movie.get('media').get('availability'),
+        'poster': "http://ichef.bbci.co.uk/images/ic/480x270/{}.jpg".format(movie.get('image').get('pid')),
+        'rating': 'Not Rated',
+    }
+
+    search_data = requests.get("{}&query={}".format(THE_MOVIE_DB_URL, movie.get('title'))).json()
+
+    if search_data.get('total_results') > 0:
+        movie_data = search_data.get('results')[0]
+        movie_details['rating'] = movie_data.get('vote_average')
+
+    return movie_details
