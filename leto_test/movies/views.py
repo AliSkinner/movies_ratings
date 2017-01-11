@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 from movies.api import get_bbc_data, get_movie_details
 
 class MovieList(TemplateView):
+    """Movies listing page"""
 
     template_name = 'movies.html'
 
@@ -25,7 +26,7 @@ class MovieList(TemplateView):
                 # search The Movie DB for each movie
                 movies = [get_movie_details(movie) for movie in bbc_movies]
                 # save results to cache for 5 minutes
-                cache.set('movies', movies, 300)
+                cache.set('movies', movies, 3000)
             except:
                 messages.error(self.request, 'Error getting data from The Movie DB')
                 return context
