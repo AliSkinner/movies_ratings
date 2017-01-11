@@ -11,11 +11,13 @@
     </section>
 
     <section class="container">
-
-      {% for movie in movies %}
-        {% include "_movie_panel.html" %}
-      {% endfor %}
-
+      {% if movies %}
+        {% for movie in movies %}
+          {% include "_movie_panel.html" %}
+        {% endfor %}
+      {% else %}
+        {% include "includes/_messages.html" %}
+      {% endif %}
     </section>
 
 
