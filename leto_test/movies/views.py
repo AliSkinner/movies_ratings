@@ -26,7 +26,7 @@ class MovieList(TemplateView):
                 # search The Movie DB for each movie
                 movies = [get_movie_details(movie) for movie in bbc_movies]
                 # save results to cache for 5 minutes
-                cache.set('movies', movies, 3000)
+                cache.set('movies', movies, 300)
             except:
                 messages.error(self.request, 'Error getting data from The Movie DB')
                 return context
