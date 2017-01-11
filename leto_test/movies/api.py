@@ -12,6 +12,7 @@ def get_bbc_data():
 
 def get_movie_details(movie):
 
+    # make dictionary of required data
     movie_details = {
         'title': movie.get('title'),
         'synopsis': movie.get('short_synopsis'),
