@@ -1,2 +1,6 @@
 db.sqlite3
 *.pyc
+node_modules/
+*.css
+*.js.map
+leto_test/assets/js/scripts/*.js
