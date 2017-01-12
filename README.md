@@ -31,5 +31,6 @@ Ali Skinner: <awskinner26@gmail.com>
 4. `pip install -r requirements.txt`
 5. `npm install`
 6. `gulp`
+7. `export THE_MOVIE_DB_KEY=f6f6ac003f3b15245000d5b2ab33d706 `
 7. `python leto_test/manage.py runserver`
 8. Open `127.0.0.1:8000` in your browser.
