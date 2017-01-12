@@ -1,8 +1,12 @@
 from django.contrib import messages
 from django.core.cache import cache
-from django.views.generic import TemplateView
-
+import logging
 from movies.api import get_bbc_data, get_movie_details
+from django.views.generic import TemplateView
+from django.http import HttpResponse
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 class MovieList(TemplateView):
     """Movies listing page"""
@@ -20,7 +24,10 @@ class MovieList(TemplateView):
                 # get data from BBC API
                 bbc_movies = get_bbc_data()
             except:
-                messages.error(self.request, 'Error getting data from BBC')
+                messages.error(
+                    self.request,
+                    'Error getting data from BBC'
+                )
                 return context
             try:
                 # search The Movie DB for each movie
@@ -28,7 +35,10 @@ class MovieList(TemplateView):
                 # save results to cache for 5 minutes
                 cache.set('movies', movies, 300)
             except:
-                messages.error(self.request, 'Error getting data from The Movie DB')
+                messages.error(
+                    self.request,
+                    'Error getting data from The Movie DB'
+                )
                 return context
 
         context['movies'] = movies
