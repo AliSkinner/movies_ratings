@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
-
+{% load static from staticfiles %}
 {% block content %}
-  <main>
+  <main
+    style="background-image: url({% static 'img/escheresque_ste.png' %})">
 
-    <section class="jumbotron">
+    <section class="jumbotron"
+      style="background-image: url({% static 'img/banner2.png' %})">
       <div class="container">
         <h1>Currently showing on iPlayer</h1>
         <p>App built with Python & Django.</p>
@@ -19,7 +21,6 @@
         {% include "includes/_messages.html" %}
       {% endif %}
     </section>
-
 
   </main>
 
