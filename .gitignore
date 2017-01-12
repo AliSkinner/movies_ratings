@@ -4,3 +4,4 @@ node_modules/
 *.css
 *.js.map
 leto_test/assets/js/scripts/*.js
+log/

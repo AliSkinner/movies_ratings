@@ -23,22 +23,24 @@ class MovieList(TemplateView):
             try:
                 # get data from BBC API
                 bbc_movies = get_bbc_data()
-            except:
+            except Exception as e:
                 messages.error(
                     self.request,
                     'Error getting data from BBC'
                 )
+                logger.debug(e)
                 return context
             try:
                 # search The Movie DB for each movie
                 movies = [get_movie_details(movie) for movie in bbc_movies]
                 # save results to cache for 5 minutes
                 cache.set('movies', movies, 300)
-            except:
+            except Exception as e:
                 messages.error(
                     self.request,
                     'Error getting data from The Movie DB'
                 )
+                logger.debug(e)
                 return context
 
         context['movies'] = movies

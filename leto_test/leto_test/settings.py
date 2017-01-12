@@ -112,4 +112,24 @@ CACHES = {
     }
 }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': './log/debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
+
 THE_MOVIE_DB_KEY = os.environ.get('THE_MOVIE_DB_KEY', '')
