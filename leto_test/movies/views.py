@@ -1,9 +1,11 @@
 from django.contrib import messages
 from django.core.cache import cache
 import logging
-from movies.api import get_bbc_data, get_movie_details
+from movies.api import get_bbc_data, get_movie_db_data
 from django.views.generic import TemplateView
 from django.http import HttpResponse
+from movies.lib.sorting.sort import sort_movies
+from movies.lib.object.movie import custom_movie_object
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -18,6 +20,7 @@ class MovieList(TemplateView):
 
         # check cache for movies
         movies = cache.get('movies', None)
+        sort_by = self.request.GET.get('sort_by', 'recent')
 
         if not movies:
             try:
@@ -30,9 +33,10 @@ class MovieList(TemplateView):
                 )
                 logger.debug(e)
                 return context
+            movies = [custom_movie_object(movie) for movie in bbc_movies]
             try:
                 # search The Movie DB for each movie
-                movies = [get_movie_details(movie) for movie in bbc_movies]
+                movies = [get_movie_db_data(movie) for movie in movies]
                 # save results to cache for 5 minutes
                 cache.set('movies', movies, 300)
             except Exception as e:
@@ -42,7 +46,8 @@ class MovieList(TemplateView):
                 )
                 logger.debug(e)
                 return context
-
+                
+        movies = sort_movies(movies, sort_by)
         context['movies'] = movies
 
         return context
