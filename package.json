@@ -8,6 +8,10 @@
   },
   "author": "Ali Skinner",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git clone git@bitbucket.org:ali_skinner/leto_code_test.git"
+  },
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",

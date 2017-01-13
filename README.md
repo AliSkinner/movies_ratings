@@ -19,16 +19,17 @@ Ali Skinner: <awskinner26@gmail.com>
 * I chose to save time by using a generic view.
 * I decided to use Django's local memory caching to save on the expensive api calls. The BBC is relatively quick, but iteration through 25 or so calls to The Movie DB is quite costly. The cache times out after 5 minutes, allowing a request to the page to fetch fresh data.
 * I've opted for Gulp to handle compilation/minification/obfuscation of static assets.
-* I've used Bootstrap pretty heavily throughout. It always surprises me how much styling is taken care of with little more than an additional css class! 
+* I've used Bootstrap pretty heavily throughout. It always surprises me how much styling is taken care of with little more than an additional css class!
+* Some basic tests are in place to cover the movie sorting function.
 
 
 ## Running the app
-
+Setup uses __*virtualenvwrapper*__
 
 ```
 cd leto_code_test
-mkvirtualenv leto 
-workon leto
+mkvirtualenv code-test
+workon code-test
 pip install -r requirements.txt
 npm install
 gulp
