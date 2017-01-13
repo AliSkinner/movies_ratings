@@ -25,12 +25,16 @@ Ali Skinner: <awskinner26@gmail.com>
 ## Running the app
 
 
-1. `cd leto_code_test`
-2. `mkvirtualenv leto`
-3. `workon leto`
-4. `pip install -r requirements.txt`
-5. `npm install`
-6. `gulp`
-7. `export THE_MOVIE_DB_KEY=f6f6ac003f3b15245000d5b2ab33d706 `
-7. `python leto_test/manage.py runserver`
-8. Open `127.0.0.1:8000` in your browser.
+```
+cd leto_code_test
+mkvirtualenv leto 
+workon leto
+pip install -r requirements.txt
+npm install
+gulp
+export THE_MOVIE_DB_KEY=f6f6ac003f3b15245000d5b2ab33d706
+cd leto_test
+python manage.py migrate
+python manage.py runserver
+```
+Open `127.0.0.1:8000` in your browser.
