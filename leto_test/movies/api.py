@@ -21,8 +21,8 @@ def get_movie_db_data(movie):
         of movie_details
     """
 
-    search_data = requests.get('{}&query={}'
-        .format(
+    search_data = requests.get(
+        '{}&query={}'.format(
             THE_MOVIE_DB_URL,
             movie.get('title')
         )

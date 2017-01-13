@@ -7,7 +7,7 @@ def sort_movies(movies, sort_by):
     elif sort_by == 'old':
         movies.sort(key=lambda x: x.get('available_from'))
     elif sort_by == 'high':
-        movies.sort(key=lambda x:x.get('rating'), reverse=True)
+        movies.sort(key=lambda x: x.get('rating'), reverse=True)
     elif sort_by == 'low':
-        movies.sort(key=lambda x:x.get('rating'))
+        movies.sort(key=lambda x: x.get('rating'))
     return movies

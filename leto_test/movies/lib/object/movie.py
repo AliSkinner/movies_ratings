@@ -27,7 +27,6 @@ def custom_movie_object(movie):
         )
     except Exception as e:
         logger.debug(e)
-        pass
 
     try:
         movie_details['available_from'] = datetime.datetime.strptime(
@@ -36,5 +35,5 @@ def custom_movie_object(movie):
         )
     except Exception as e:
         logger.debug(e)
-        pass
+
     return movie_details

@@ -1,6 +1,6 @@
 import datetime
 from django.test import TestCase
-from lib.sorting.sort import sort_movies
+from movies.lib.sorting.sort import sort_movies
 
 class SortingTestCase(TestCase):
     """test sorting functionality"""
@@ -48,24 +48,28 @@ class SortingTestCase(TestCase):
         ]
 
     def test_sort_recent(self):
+        """test sorting by most recent"""
         self.assertEqual(
             sort_movies(self.movies, 'recent')[0],
             self.movie_1
         )
 
     def test_sort_old(self):
+        """test sorting by oldest"""
         self.assertEqual(
             sort_movies(self.movies, 'old')[0],
             self.movie_2
         )
 
     def test_sort_rating_high(self):
+        """test sorting by highest rating"""
         self.assertEqual(
             sort_movies(self.movies, 'high')[0],
             self.movie_3
         )
 
     def test_sort_rating_low(self):
+        """test sorting by lowest rating"""
         self.assertEqual(
             sort_movies(self.movies, 'low')[0],
             self.movie_1

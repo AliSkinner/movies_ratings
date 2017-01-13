@@ -1,7 +1,6 @@
 import logging
 from django.contrib import messages
 from django.core.cache import cache
-from django.http import HttpResponse
 from django.views.generic import TemplateView
 from movies.api import get_bbc_data, get_movie_db_data
 from movies.lib.object.movie import custom_movie_object
