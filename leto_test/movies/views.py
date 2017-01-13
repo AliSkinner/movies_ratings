@@ -1,11 +1,11 @@
+import logging
 from django.contrib import messages
 from django.core.cache import cache
-import logging
-from movies.api import get_bbc_data, get_movie_db_data
-from django.views.generic import TemplateView
 from django.http import HttpResponse
-from movies.lib.sorting.sort import sort_movies
+from django.views.generic import TemplateView
+from movies.api import get_bbc_data, get_movie_db_data
 from movies.lib.object.movie import custom_movie_object
+from movies.lib.sorting.sort import sort_movies
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -46,7 +46,7 @@ class MovieList(TemplateView):
                 )
                 logger.debug(e)
                 return context
-                
+
         movies = sort_movies(movies, sort_by)
         context['movies'] = movies
 

@@ -12,14 +12,14 @@ def custom_movie_object(movie):
     movie_details = {
         'title': movie.get('title'),
         'synopsis': movie.get('short_synopsis'),
-        'run_time': time.strftime("%H:%M:%S", time.gmtime(movie.get('duration'))),
+        'run_time': time.strftime('%H:%M:%S', time.gmtime(movie.get('duration'))),
         'expire_string': movie.get('media').get('availability'),
-        'poster': "http://ichef.bbci.co.uk/images/ic/480x270/{}.jpg"
+        'poster': 'http://ichef.bbci.co.uk/images/ic/480x270/{}.jpg'
                   .format(movie.get('image').get('pid')),
         'rating': 'Not Rated',
-        'release_date': "Unkown"
+        'release_date': 'Unkown'
     }
-    
+
     try:
         movie_details['available_until'] = datetime.datetime.strptime(
             movie.get('available_until')[:10],
