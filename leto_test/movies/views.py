@@ -6,8 +6,10 @@ from movies.api import get_bbc_data, get_movie_db_data
 from movies.lib.object.movie import custom_movie_object
 from movies.lib.sorting.sort import sort_movies
 
+
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
+
 
 class MovieList(TemplateView):
     """Movies listing page"""

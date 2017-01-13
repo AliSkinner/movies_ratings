@@ -2,6 +2,7 @@ import datetime
 from django.test import TestCase
 from movies.lib.sorting.sort import sort_movies
 
+
 class SortingTestCase(TestCase):
     """test sorting functionality"""
     def setUp(self):

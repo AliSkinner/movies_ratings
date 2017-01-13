@@ -1,7 +1,8 @@
-"""module to house sorting functions for movies"""
+"""module to house sorting function for movies"""
 
 def sort_movies(movies, sort_by):
     """sorts list of movies by second arg"""
+
     if sort_by == 'recent':
         movies.sort(key=lambda x: x.get('available_from'), reverse=True)
     elif sort_by == 'old':

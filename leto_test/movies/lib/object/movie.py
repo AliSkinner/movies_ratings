@@ -1,7 +1,9 @@
 """module to house constructor function for movie object"""
+
 import time
 import datetime
 import logging
+
 
 logger = logging.getLogger(__name__)
 

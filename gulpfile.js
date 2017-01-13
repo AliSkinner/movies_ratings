@@ -27,9 +27,11 @@ gulp.task('scripts', function() {
 
 // clean js & css dirs
 gulp.task('clean', function() {
-    return del(['leto_test/assets/stylesheets/css/*.css',
-                'leto_test/assets/js/scripts/*.js',
-                'leto_test/assets/js//scripts/*.js.map']);
+  return del([
+    'leto_test/assets/stylesheets/css/*.css',
+    'leto_test/assets/js/scripts/*.js',
+    'leto_test/assets/js//scripts/*.js.map'
+  ]);
 });
 
 // dev watch js & less

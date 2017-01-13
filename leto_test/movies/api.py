@@ -4,9 +4,11 @@ import datetime
 import requests
 from leto_test.settings import THE_MOVIE_DB_KEY
 
+
 BBC_URL = 'http://www.bbc.co.uk/tv/programmes/formats/films/player/episodes.json'
 THE_MOVIE_DB_URL = 'http://api.themoviedb.org/3/search/movie?api_key={}'\
     .format(THE_MOVIE_DB_KEY)
+
 
 def get_bbc_data():
     """Returns parsed list of data from BBC endpoint"""
@@ -17,8 +19,9 @@ def get_bbc_data():
 
 
 def get_movie_db_data(movie):
-    """Searches The Movie DB for title of given movie and returns dictionary
-        of movie_details
+    """
+    Searches The Movie DB for title of given movie and returns dictionary
+    of movie_details
     """
 
     search_data = requests.get(

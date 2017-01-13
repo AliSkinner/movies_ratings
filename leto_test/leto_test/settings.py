@@ -131,5 +131,4 @@ LOGGING = {
     },
 }
 
-
 THE_MOVIE_DB_KEY = os.environ.get('THE_MOVIE_DB_KEY', '')
