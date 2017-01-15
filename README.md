@@ -17,6 +17,7 @@ Ali Skinner: <awskinner26@gmail.com>
 
 * I decided to use Django, as I am familiar with the framework and ecosystem.
 * I chose to save time by using a generic view.
+* As I only want to show fresh data from iPlayer, I decided not to to use Django's models/db, instead returning dictionaries of movie data. An alternative approach could have been to leverage Python's object classes. 
 * I decided to use Django's local memory caching to save on the expensive api calls. The BBC is relatively quick, but iteration through 25 or so calls to The Movie DB is quite costly. The cache times out after 5 minutes, allowing a request to the page to fetch fresh data.
 * I've opted for Gulp to handle compilation/minification/obfuscation of static assets.
 * I've used Bootstrap pretty heavily throughout. It always surprises me how much styling is taken care of with little more than an additional css class!
