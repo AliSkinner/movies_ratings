@@ -2,7 +2,7 @@
 
 import datetime
 import requests
-from leto_test.settings import THE_MOVIE_DB_KEY
+from movies_ratings.settings import THE_MOVIE_DB_KEY
 
 
 BBC_URL = 'http://www.bbc.co.uk/tv/programmes/formats/films/player/episodes.json'

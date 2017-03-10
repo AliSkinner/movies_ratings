@@ -8,36 +8,36 @@ var gulp = require('gulp'),
 
 // build less
 gulp.task('less', function () {
-  return gulp.src('leto_test/assets/stylesheets/less/*.less')
+  return gulp.src('movies_ratings/assets/stylesheets/less/*.less')
     .pipe(less({
       paths: [ path.join(__dirname, 'less') ]
     }))
     .pipe(cssnano())
-    .pipe(gulp.dest('leto_test/assets/stylesheets/css'))
+    .pipe(gulp.dest('movies_ratings/assets/stylesheets/css'))
 });
 
 // build js
 gulp.task('scripts', function() {
-  return gulp.src('leto_test/assets/js/src/*.js')
+  return gulp.src('movies_ratings/assets/js/src/*.js')
     .pipe(sourcemaps.init())
       .pipe(uglify())
       .pipe(sourcemaps.write('/'))
-    .pipe(gulp.dest('leto_test/assets/js/scripts'))
+    .pipe(gulp.dest('movies_ratings/assets/js/scripts'))
 });
 
 // clean js & css dirs
 gulp.task('clean', function() {
   return del([
-    'leto_test/assets/stylesheets/css/*.css',
-    'leto_test/assets/js/scripts/*.js',
-    'leto_test/assets/js//scripts/*.js.map'
+    'movies_ratings/assets/stylesheets/css/*.css',
+    'movies_ratings/assets/js/scripts/*.js',
+    'movies_ratings/assets/js//scripts/*.js.map'
   ]);
 });
 
 // dev watch js & less
 gulp.task('watch', function() {
-  gulp.watch('leto_test/assets/stylesheets/less/*.less', ['less']);
-  gulp.watch('leto_test/assets/js/src/*.js', ['scripts']);
+  gulp.watch('movies_ratings/assets/stylesheets/less/*.less', ['less']);
+  gulp.watch('movies_ratings/assets/js/src/*.js', ['scripts']);
 });
 
 // BUILD

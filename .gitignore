@@ -3,5 +3,6 @@ db.sqlite3
 node_modules/
 *.css
 *.js.map
-leto_test/assets/js/scripts/*.js
+movies_ratings/assets/js/scripts/*.js
 debug.log
+venv/
